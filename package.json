@@ -1,0 +1,31 @@
+{
+  "name": "site-bebidas",
+  "version": "1.0.0",
+  "description": "site para delivery de bebidas",
+  "main": "index.js",
+  "scripts": {
+    "dev": "env-cmd --file ./config/dev.env nodemon src/index.js",
+    "start": "node src/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "otavio bonatto",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "connect-flash": "^0.1.1",
+    "connect-mongo": "^2.0.3",
+    "ejs": "^2.6.1",
+    "express": "^4.16.4",
+    "express-session": "^1.16.1",
+    "mongoose": "^5.5.5",
+    "passport": "^0.4.0",
+    "passport-local": "^1.0.0",
+    "passport-local-mongoose": "^5.0.1",
+    "stripe": "^6.32.0",
+    "validator": "^10.11.0"
+  },
+  "devDependencies": {
+    "env-cmd": "^9.0.1",
+    "nodemon": "^1.19.0"
+  }
+}

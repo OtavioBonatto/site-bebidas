@@ -1,0 +1,23 @@
+<% include ../partials/header %>
+
+<div class="row">
+    <div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
+		<form action="/users/login" method="post">
+			<h2>Entrar<small></small></h2>
+			<hr class="colorgraph">
+                <div class="form-group">
+                    <input type="text" name="username" id="username" class="form-control input-lg" placeholder="Primeiro nome" tabindex="1">
+                </div>
+                <div class="form-group">
+                    <input type="password" name="password" id="password" class="form-control input-lg" placeholder="Senha" tabindex="2">
+                </div>		
+			<hr class="colorgraph">
+            <div class="form-group">
+                <div class="col-xs-12 col-md-6"><button class="btn btn-primary btn-block btn-lg">Entrar</button></div>
+                <div class="col-xs-12 col-md-6"><a class="btn btn-success btn-block btn-lg" href="/">Voltar</a></div>                
+            </div>            
+        </form>
+    </div>
+</div>
+
+<% include ../partials/footer %>
