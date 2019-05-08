@@ -27,7 +27,7 @@ $(function() {
   $form.on('submit', function(e) {
     if (!$form.data('cc-on-file')) {
       e.preventDefault();
-      Stripe.setPublishableKey($form.data('stripe-publishable-key'));
+      Stripe.setPublishableKey("pk_test_TTqZlNRYur7TUeDELFGvNN1Z");
       Stripe.createToken({
         number: $('.card-number').val(),
         cvc: $('.card-cvc').val(),
