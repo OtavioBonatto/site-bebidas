@@ -51,9 +51,9 @@ router.post('/checkout', auth, async (req, res) => {
             if (err) {
                 console.log(err);
                 res.redirect('/checkout');
-            } else {
-                console.log('bom')
+            } else {                
                 req.session.carrinho = null;
+                req.flash('success', 'Compra realizada com sucesso')
                 res.redirect('/');
             }
   
@@ -79,6 +79,7 @@ router.get('/finalizar', auth,  async (req, res) => {
     try {
         await novoPedido.save()
         req.session.carrinho = null
+        req.flash('success', 'Compra realizada com sucesso')
         res.redirect('/');
     } catch(e) {
         console.log(e)
