@@ -1,74 +1,49 @@
 <% include ../partials/header %> 
 <% if(bebidas && bebidas.length > 0){ %>
-    <div class="row">
-        <div class="col-sm-12 col-md-10 col-md-offset-1">
-            <table class="table table-hover">
-                <thead>
-                    <tr>
-                        <th>Produto</th>
-                        <th>Quantidade</th>
-                        <th class="text-center">Preço</th>
-                        <th class="text-center">Total</th>
-                        <th> </th>
-                    </tr>
-                </thead>
-                <tbody class="bebida-tabela">
-                    <% bebidas.forEach(function(bebida) { %>
-                        <tr class="bebida-item">
-                            <td class="col-sm-8 col-md-6">
-                            <div class="media">
-                                <a class="thumbnail pull-left" style="margin-right: 10px;" href="#"> <img class="media-object" src="<%= bebida.item.imagem %>" style="width: 72px; height: 72px; "> </a>
-                                <div class="media-body">
-                                    <h4 class="media-heading"><%= bebida.item.titulo %></h4>
-                                    <span>Status: </span><span class="text-success"><strong>Em estoque</strong></span>
-                                </div>
-                            </div></td>
-                            <td class="col-sm-1 col-md-1 text-center"><strong><%= bebida.quantidade %></strong></td>
-                            <td class="col-sm-1 col-md-1 text-center"><strong><%= bebida.item.preco %>.00 R$</strong></td>
-                            <td class="col-sm-1 col-md-1 text-center"><strong><%= bebida.preco %>.00 R$</strong></td>
-                            <td class="col-sm-1 col-md-1">
-                                <a href="/remove-carrinho/<%= bebida.item._id %>"  id="btn-del" type="button" class="btn btn-danger"><span class="glyphicon glyphicon-remove"></span> Remover</a>                               
-                            </td>
-                        </tr>                    
-                    <% }); %>             
-                    <tr>
-                        <td>   </td>
-                        <td>   </td>
-                        <td>   </td>
-                        <td><h5>Subtotal</h5></td>
-                        <td class="text-right"><h5><strong><%= precoTotal %>.00 R$</strong></h5></td>
-                    </tr>
-                    <tr>
-                        <td>   </td>
-                        <td>   </td>
-                        <td>   </td>
-                        <td><h5>Entrega</h5></td>
-                        <td class="text-right"><h5 class="text-success"><strong>Grátis</strong></h5></td>
-                    </tr>
-                    <tr>
-                        <td>   </td>
-                        <td>   </td>
-                        <td>   </td>
-                        <td><h3>Total</h3></td>
-                        <td class="text-right"><h3><strong><%= precoTotal %>.00 R$</strong></h3></td>
-                    </tr>
-                    <tr>
-                        <td>   </td>
-                        <td>   </td>
-                        <td>   </td>
-                        <td>
-                        <a href="/" type="button" class="btn btn-default">
-                            <span class="glyphicon glyphicon-shopping-cart"></span> Continuar Comprando
-                        </a></td>
-                        <td>
-                        <a href="/checkout" type="button" class="btn btn-success">
-                            Finalizar Compra <span class="glyphicon glyphicon-play"></span>
-                        </a></td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </div>
+        <table id="cart" class="table table-hover table-condensed">
+            <thead>
+                <tr>
+                    <th style="width:50%">Produtos</th>
+                    <th style="width:10%">Preço</th>
+                    <th style="width:8%">Quantidade</th>
+                    <th style="width:22%" class="text-center">Subtotal</th>
+                    <th style="width:10%"></th>
+                </tr>
+            </thead>
+            <tbody>
+            <% bebidas.forEach(function(bebida) { %>
+                <tr>
+                    <td data-th="Product">
+                        <div class="row">
+                            <div class="col-sm-2 hidden-xs"><img src="<%= bebida.item.imagem %>" style="width: 72px; height: 72px; alt="..." class="img-responsive"/></div>
+                            <div class="col-sm-10">
+                                <h4 class="nomargin"><%= bebida.item.titulo %></h4>
+                            </div>
+                        </div>
+                    </td>
+                    <td data-th="Price"><strong><%= bebida.item.preco %>.00 R$</strong></td>
+                    <td data-th="Quantity">
+                        <input type="number" class="form-control text-center" value="<%= bebida.quantidade %>">
+                    </td>
+                    <td data-th="Subtotal" class="text-center"><strong><%= bebida.preco %>.00 R$</strong></td>
+                    <td class="actions" data-th="">
+                        <a href="/remove-carrinho/<%= bebida.item._id %>"  id="btn-del" type="button" class="btn btn-danger"><span class="glyphicon glyphicon-remove"></span> Remover</a>								
+                    </td>
+                </tr>
+                <% }); %>  
+            </tbody>
+            <tfoot>
+                <tr class="visible-xs">
+                    <td class="text-center"><strong><%= precoTotal %>.00 R$</strong></td>
+                </tr>
+                <tr>
+                    <td><a href="/" class="btn btn-warning"> Continuar comprando</a></td>
+                    <td colspan="2" class="hidden-xs"></td>
+                    <td class="hidden-xs text-center"><strong>1.99</strong></td>
+                    <td><a href="/checkout" class="btn btn-success btn-block">Finalizar </a></td>
+                </tr>
+            </tfoot>
+        </table>
 <% } else { %>
     <h1>Sem bebidas no carrinho</h1>
 <% } %>
