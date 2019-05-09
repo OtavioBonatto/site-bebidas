@@ -1,15 +1,17 @@
 <% include ../partials/header %> 
     <div class="row text-center item-comprar" style="display: flex; flex-wrap: wrap">
         <% bebidas.forEach(function(bebida) { %>
-            <div class="bebida col-md-3 col-sm-6">
+            <div class="bebida container col-md-3 col-sm-6">
                 <div class="thumbnail">
                     <img src="<%= bebida.imagem %>">
                     <div class="caption">
                         <h4><%= bebida.titulo %></h4>                          
                         <form action="/add-carrinho/<%= bebida._id %>" method="POST">
-                        <h4 class="preco"><%= bebida.preco %>.00 R$</h4>
-                        <input name="qtd" class="quantificador" type="number" value="1" min="1" max="<%= bebida.quantidade %>">  
-                        <button class="btn_comprar btn btn-primary btn-lg"><i class="glyphicon glyphicon-shopping-cart"></i> Comprar</button>                          
+                            <h4 class="preco"> R$<%= bebida.preco %>.00</h4>
+                            <input name="qtd" class="quantificador" type="number" value="1" min="1" max="<%= bebida.quantidade %>"> 
+                            <div class="text-center">
+                                <button class="btn_comprar btn btn-primary btn-lg"><i class="glyphicon glyphicon-shopping-cart"></i> Comprar</button>
+                            </div>                                     
                         </form>                            
                     </div>  
                 </div>

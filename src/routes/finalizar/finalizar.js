@@ -40,7 +40,6 @@ router.post('/checkout', auth, async (req, res) => {
 
     //recebe o tokenId de pagamento do form
     const token = req.body.reservation.stripe_token
-    console.log(token)
 
 
     stripe.charges.create({
@@ -48,11 +47,21 @@ router.post('/checkout', auth, async (req, res) => {
         currency: 'BRL',
         description: 'cobrança teste',
         source: token[0],
-        }, function(err, charge) {
+        }, async function(err, charge) {
             if (err) {
                 console.log(err);
                 res.redirect('/checkout');
-            } else {                
+            } else {      
+                const novoCarrinho = new carrinho(req.session.carrinho)
+
+                const novoPedido = new pedido({
+                    items: novoCarrinho.items,
+                    endereco: req.user.endereco,
+                    name: req.user.username,
+                    precoTotal: novoCarrinho.precoTotal
+                })
+                
+                await novoPedido.save()
                 req.session.carrinho = null;
                 req.flash('success', 'Compra realizada com sucesso')
                 res.redirect('/');
