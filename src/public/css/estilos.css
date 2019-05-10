@@ -166,8 +166,10 @@ body {
 
 .form-troco {
     display: inline;
+    width: 53px;
     margin-left: 10px;
-}
+
+} 
 
 /* carrinho de compras */
 .table>tbody>tr>td, .table>tfoot>tr>td{
