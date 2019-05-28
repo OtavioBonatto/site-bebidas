@@ -21,7 +21,7 @@ const data = [
         quantidade: "20"
     },
     {
-        titulo: "Heineken Long Neck 330ml" ,
+        titulo: "Heineken Long 330ml" ,
         imagem: "https://i.imgur.com/iVpMAr8.jpg",
         preco: 7.00,
         quantidade: "20"
@@ -41,12 +41,6 @@ const data = [
     {
         titulo: "Polar Latão 473ml" ,
         imagem: "https://i.imgur.com/RyGBbnQ.jpg",
-        preco: 5.00,
-        quantidade: "20"
-    },
-    {
-        titulo: "Stella Artois 310ml" ,
-        imagem: "https://i.imgur.com/9WNYdAB.jpg",
         preco: 5.00,
         quantidade: "20"
     },
