@@ -21,7 +21,7 @@ const usersRouter = require('./routes/users/user')
 const carrinhoRouter = require('./routes/carrinho/carrinho')
 const finalizarRouter = require('./routes/finalizar/finalizar')
 
-seedDB()
+// seedDB()
 
 app.set('views', __dirname + '/views')
 app.set('view engine', 'ejs')

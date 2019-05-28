@@ -44,6 +44,12 @@ const data = [
         preco: 5.00,
         quantidade: "20"
     },
+    {
+        titulo: "Stella Artois 310ml" ,
+        imagem: "https://i.imgur.com/9WNYdAB.jpg",
+        preco: 5.00,
+        quantidade: "20"
+    },
 ]
 
 const seedDB = async () => {

@@ -45,7 +45,7 @@ body {
 .btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary:active:focus, .btn-primary:visited, .btn-primary:focus {    
     /* border: 3px solid #c36d39; */
     border-color: #c36d39;
-    background-color: #bc4f0e;
+    background-color: #b94803;
     /* background-color: white; */
     color: white;
     margin-bottom: 10px;
@@ -109,7 +109,7 @@ body {
     margin-top: 3%;
     /* border: 3px solid #bc4f0e; */
     color: white;
-    background-color: #c36d39;
+    background-color: #b94803;
     border-radius: 10rem;
 }
 
